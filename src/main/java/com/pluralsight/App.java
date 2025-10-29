@@ -26,17 +26,25 @@ public class App {
        // date you acquired it, how much you paid for it, and its value.
         for (int i = 0; i < myAssests.size(); i++){
             if (myAssets.get(i) instanceof House) {
-                House MainResidence = (MainResidence) myAssets.get(i);
-                System.out.println("House at " + MainResidence.getAddress());
+                House house = (house) myAssets.get(i);
+                System.out.println("House at " + house.getAddress());
+
                 } else if (myAssets.get(i) instanceof Vehicle) {
-                Vehicle BlueBMWM5Comp = (BlueBMWM5Comp) myAssets.get(i);
-                System.out.println("Vehicle: " + BlueBMWM5Comp.getMakeModel());
-                BlueBMWM5Comp.getYear() + " " + BlueBMWM5Comp.getMakeModel();
+                Vehicle vehicle = (vehicle) myAssets.get(i);
+
+                System.out.println("Vehicle 1: " + vehicle.getDescription());
+                System.out.println("Year: " + vehicle.getYear());
+                System.out.println("Make/Model: " + vehicle.getMakeModel());
+                System.out.println("Acquired: " + vehicle.getDateAcquired());
+                System.out.println("MSRP: " + vehicle.getValue());
+                System.out.println("Mileage: " + vehicle.getOdometer());
             }
         }
         double myNetWorth = 0;
         for(int i = 0; i < myAssets.length; i++) {
-        myNetWorth += myAssets[i].getValue();
+            myNetWorth += myAssets[i].getValue();
+        }
+            System.out.println("Net Worth: " + myNetWorth);
        // When that works, go back and include in the display either the address of the
        // house or the year and make/model of the vehicle.  You will need to use
        // instanceof when you loop through the assets to detect the type of asset it is.
