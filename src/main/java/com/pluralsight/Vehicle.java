@@ -5,8 +5,9 @@ public class Vehicle extends Asset {
     String makeModel;
     int year;
     int odometer;
+    String color;
 
-    public Vehicle(String description, String dateAcquired, double originalCost, String makeModel, int year, int odometer) {
+    public Vehicle(String description, String dateAcquired, double originalCost, String makeModel, int year, int odometer, String color) {
         super(description, dateAcquired, originalCost);
         this.makeModel = makeModel;
         this.year = year;
