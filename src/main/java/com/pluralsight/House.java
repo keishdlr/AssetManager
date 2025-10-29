@@ -55,6 +55,6 @@ public class House extends Asset{
         // $90.00 per square foot (fair)
         // $80.00 per square foot (poor)
         // PLUS  25 cents per square foot of lot size
-
+        return 0;
     }
 }
