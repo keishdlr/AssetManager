@@ -6,10 +6,9 @@ public class App {
     public static void main(String[] args) {
 
         // ArrayList of Asset objects.
-        ArrayList<> myAssests = new ArrayList<>();
+        ArrayList <Asset> myAssests = new ArrayList<>();
 
-        // Load it with your Assets.  Include at least 2 houses (you have a vacation home!)
-        // and at least two vehicles.
+        // Load it with your Assets.  Include at least 2 houses (you have a vacation home!) and at least two vehicles.
         House WhiteResidence = new House("Main Residence","April 17, 2003",250000,"3828 Piermont Dr. NE, Albuquerque, NM 87111",2,3000,1);
         myAssests.add(WhiteResidence);
 
@@ -22,8 +21,8 @@ public class App {
         Vehicle BMWX5Comp = new Vehicle("Wifey's Car","April 17, 2013",70000,"BMW X5", 2013,23000, "Pink");
         myAssests.add(BMWX5Comp);
 
-        //Now, loop thru the Asset collection displaying the description of each asset, the
-       // date you acquired it, how much you paid for it, and its value.
+        // Now, loop thru the Asset collection displaying the description of each asset, the
+        // date you acquired it, how much you paid for it, and its value.
         for (int i = 0; i < myAssests.size(); i++){
             if (myAssets.get(i) instanceof House) {
                 House house = (house) myAssets.get(i);
@@ -52,10 +51,3 @@ public class App {
        // can call the methods of the specific type.
     }
 }
-/// / Assume House and Jewelry extend the Asset class
-//Asset[] myAssets = new Asset[3];
-//myAssets[0] = new House("Ranch House", "402 Stevens",
-//2000, 43560, 2020, 125.00);
-//myAssets[1] = new House("Rental", "3329 Duchess",
-//1600, 5445, 1995, 53000);
-//myAssets[2] = new Jewelry("Ring", "Diamond", 1.5, 1979, 1200);

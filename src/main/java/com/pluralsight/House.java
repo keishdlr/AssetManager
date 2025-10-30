@@ -49,12 +49,12 @@ public class House extends Asset{
 
     @Override
     public double getValue(){
+        return (180 *squareFoot) + 0.25 * lotSize;
         // A house's value is determined as
         // $180.00 per square foot (excellent)
         // $130.00 per square foot (good)
         // $90.00 per square foot (fair)
         // $80.00 per square foot (poor)
         // PLUS  25 cents per square foot of lot size
-        return 0;
     }
 }

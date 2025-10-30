@@ -1,5 +1,11 @@
 package com.pluralsight;
 
+import com.sun.jdi.Value;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.Year;
+
 public class Vehicle extends Asset {
 
     String makeModel;
@@ -38,17 +44,30 @@ public class Vehicle extends Asset {
         this.odometer = odometer;
     }
 
-    @Override
-    public double getValue() {
 
-        // A car's value is determined as
-    // 0-3 years old  - 3% reduced value of cost per year
-    // 4-6 years old  - 6% reduced value of cost per year
-    // 7-10 years old - 8% reduced value of cost per year
-    // over 10 years old - $1000.00
-    // MINUS  reduce final value by 25% if over 100,000 miles
-        //   unless makeModel contains word Honda or Toyota
-        return 0;
+
+    @Override
+    public double getValue() { // A car's value is determined as
+        int currentYear = LocalDate.now().getYear();
+        int age = currentYear - year;
+        double v = 0;
+
+        if (age <= 3) {// 0-3 years old
+             v = originalCost * (1-0.03 * age);//  3% reduced value of cost per year
+        } else if (age <= 6) { // 4-6 years old
+            v = originalCost * (1-0.06 * age);// 6% reduced value of cost per year
+        } else if (age <= 10) {// 7-10 years old
+            v = originalCost * (1-0.08 * age);;// 8% reduced value of cost per year
+        } else if (age > 10) { // over 10 years old
+            v = 1000;// $1000.00
+        }
+
+        if (odometer >= 100000 && !(makeModel.contains ("Honda") || makeModel.contains("Toyota"))) {
+        // MINUS  reduce final value by 25% if over 100,000 miles
+            //   unless makeModel contains word Honda or Toyota
+            v = v * .75;
+        }
+        return v;
     }
 
 }
