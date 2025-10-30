@@ -24,12 +24,15 @@ public class App {
         // Now, loop thru the Asset collection displaying the description of each asset, the
         // date you acquired it, how much you paid for it, and its value.
         for (int i = 0; i < myAssests.size(); i++){
-            if (myAssets.get(i) instanceof House) {
-                House house = (house) myAssets.get(i);
-                System.out.println("House at " + house.getAddress());
+            if (myAssests.get(i) instanceof House) {
+                House house = (House) myAssests.get(i);
+                System.out.println("House: " + house.getDescription());
+                System.out.println("Acquired: " + house.getDateAcquired());
+                System.out.println("Purchase Price: " + house.getOriginalCost());
+                System.out.println("Current Value: " + house.getValue());
+                System.out.println("Address: " + house.getAddress());
 
-                } else if (myAssets.get(i) instanceof Vehicle) {
-                Vehicle vehicle = (vehicle) myAssets.get(i);
+                } else if (myAssests.get(i) instanceof Vehicle vehicle) {
 
                 System.out.println("Vehicle 1: " + vehicle.getDescription());
                 System.out.println("Year: " + vehicle.getYear());
@@ -40,14 +43,9 @@ public class App {
             }
         }
         double myNetWorth = 0;
-        for(int i = 0; i < myAssets.length; i++) {
-            myNetWorth += myAssets[i].getValue();
+        for (Asset myAssest : myAssests) {
+            myNetWorth += myAssest.getValue();
         }
-            System.out.println("Net Worth: " + myNetWorth);
-       // When that works, go back and include in the display either the address of the
-       // house or the year and make/model of the vehicle.  You will need to use
-       // instanceof when you loop through the assets to detect the type of asset it is.
-       // Once you know it is a House or Vehicle, you will need to downcast it so that you
-       // can call the methods of the specific type.
+        System.out.println("Net Worth: " + myNetWorth);
     }
 }
